@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>UNIVERSAL FOODZ</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- font css -->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,800;1,400&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js"></script>
+
+   </head>
+   <body>
+      <script type="module">
+         // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+      import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+         const firebaseConfig = {
+           apiKey: "AIzaSyDgkt5XaAZlTG-MuEaSYsDaID0teA8LK8E",
+           authDomain: "parota-81413.firebaseapp.com",
+           databaseURL: "https://parota-81413-default-rtdb.firebaseio.com",
+           projectId: "parota-81413",
+           storageBucket: "parota-81413.appspot.com",
+           messagingSenderId: "157288741202",
+           appId: "1:157288741202:web:410d0fe6eb168cd7c4628b",
+           measurementId: "G-J4Y78PPZ05"
+         };
+       
+         // Initialize Firebase
+         const app = initializeApp(firebaseConfig);
+         const db = getDatabase(app);
+         
+         document.getElementById("submit").addEventListener('click', function(e){
+              e.preventDefault();
+              set(ref(db, 'user/' + document.getElementById("username").value),
+              {
+             name: document.getElementById("Name").value,
+             phoneNumber: document.getElementById("Pn").value,
+             email: document.getElementById("Em").value,
+             message: document.getElementById("Mes").value
+           });
+
+           alert("Login Sucessfull  !");
+       // Push data to Firebase
+       })
+       // Clear input fields
+       
+         </script>
+      <div class="header_section">
+         <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <a class="navbar-brand"href="index.html"><img src="images/logo.png"></a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                     </li>
+                     
+                     <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                     </li>
+                  
+                     <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                     </li>
+                  </ul>
+                  
+               </div>
+            </nav>
+         </div>
+      </div>
+      <!-- header section end -->
+
+
+
+      
+      <!-- layout_border start -->
+      <div class="container-fluid">
+         <div class="layout_border">
+            <!-- banner section start --> 
+            <div class="banner_section layout_padding">
+               <div class="container-fluid">
+                  <div id="main_slider" class="carousel slide" data-ride="carousel">
+                     <div class="carousel-inner">
+                        <div class="carousel-item active">
+                           <div class="row">
+                              <div class="col-sm-6">
+                                 <div class="banner_taital_main">
+                                    <h1 class="banner_taital">Fresh paratha</h1>
+                                    <p class="banner_text">good food good life</p>
+                                    <div class="btn_main">
+                                       <div class="started_text"><a href="#">Buy Now</a></div>
+                                       <div class="started_text active"><a href="#">Contact Us</a></div>
+                                    </div>  
+                                 </div>
+                              </div>
+                              <div class="col-sm-6">
+                                 <div class="banner_img"><img src="images/img-1.png"></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="row">
+                              <div class="col-sm-6">
+                                 <div class="banner_taital_main">
+                                    <h1 class="banner_taital">Fresh poori</h1>
+                                    <p class="banner_text">Ready to Eat </p>
+                                    <div class="btn_main">
+                                       <div class="started_text"><a href="#">Buy Now</a></div>
+                                       <div class="started_text active"><a href="#">Contact Us</a></div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-6">
+                                 <div class="banner_img"><img src="images/poori-removebg-preview.png"></div>
+                              </div>
+                           </div>
+                        </div>
+                        
+                     </div>
+                     <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+                     <img src="images/arrow-left.png">
+                     </a>
+                     <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                     <img src="images/arrow-right.png">
+                     </a>
+                  </div>
+               </div>
+            </div>
+            <!-- banner section end -->
+            <!-- about section start -->
+           
+            <!-- about section end -->
+
+
+            
+            <div class="about_section layout_padding">
+               <div class="container">
+                  <div class="row">
+                   
+                  </div>
+                  <div class="about_section_2">
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="about_img"><img src="images/img-1.png"></div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="fresh_taital"> Paratha</div>
+                        <p class="ipsum_text">Indulge in these wholesome, home-style parotas, crafted without added preservatives. Savor the softness of each bite, as we've dedicatedly enriched them with natural ingredients for a delightful and healthy experience. Packed with goodness, our parotas promise not just energy but also essential iron and calcium—because your well-being matters. Elevate your taste with our vegetarian slices, made with care and a commitment to your health./p>
+                        <div class="read_bt"><a href="billing.html">BUY</a></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+             <!-- about section end -->
+             <div class="about_section layout_padding">
+               <div class="container">
+                  <div class="row">
+                    
+                  </div>
+                  <div class="about_section_2">
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="about_img"><img src="images/poori-removebg-preview.png"></div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="fresh_taital">Poori</div>
+                        <p class="ipsum_text">Delight in the simplicity of pooris – deep-fried, fluffy bread that brings comfort to every meal. These golden rounds, made with unleavened wheat flour, offer a crisp exterior and a soft interior. Whether paired with savory curries or enjoyed on their own, pooris are a timeless and satisfying treat in Indian cuisine.</p>
+                        <div class="read_bt"><a href="billing.html">BUY</a></p></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- vagetables section start -->
+
+
+
+
+
+            <div class="about_section layout_padding">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <h1 class="about_taital">About Us</h1>
+                        <p class="about_text"> UniversalFoodz exclusively caters to wholesale orders, with a minimum requirement of 100 packets per order. Each packet contains only 10 parathas and pooris, ensuring that our customers receive bulk quantities for their needs. This approach allows us to focus on providing high-quality products in larger quantities, making UniversalFoodz the go-to choice for those seeking wholesale quantities of our delicious frozen parathas and pooris. Our commitment to wholesale transactions enables us to meet the demands of businesses, events, or individuals with significant food requirements, while maintaining the excellence and convenience our products are known for.</p>
+                     </div>
+                  </div>
+                  <div class="about_section_2">
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="about_img"><img src="images/newnew.jpg"></div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="fresh_taital">Universal Foodz</div>
+                        <p class="ipsum_text">UniversalFoodz takes pride in revolutionizing the frozen food market with its ready-to-eat parathas and pooris. Committed to delivering convenience without compromising on taste, the company employs top-notch freezing technology to preserve the authenticity of homemade delights. From classic aloo parathas to flaky lachha parathas, UniversalFoodz offers a diverse range of flavors, catering to various preferences. Embracing innovation, eco-friendly packaging, and a dedication to health, the company ensures its frozen delights provide not just a quick meal solution but also a wholesome and satisfying dining experience. With accessibility in mind, UniversalFoodz products are readily available in supermarkets, offering a convenient taste of home for individuals with busy lifestyles.</p>
+                        
+                     </div>
+                  </div>
+               </div>
+            </div>
+           
+            <!-- vagetables section end -->
+<!-- Contact section start -->
+<!-- Contact section start -->
+<div class="contact_section layout_padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="contact_heading">
+               <h1 class="contact_title">Get In Touch</h1>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <div class="contact_section_2">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="mail_section_1">
+                  <form>
+                     <input type="text" class="mail_text" id="Name" placeholder="Your Name" name="Name">
+                     <input type="number" class="mail_text" id="Pn" placeholder="Phone Number" name="Phone Number"> 
+                     <input type="email" class="mail_text" id="Em" placeholder="Email Address" name="Email">
+                     <textarea class="massage-bt" id="Mes" placeholder="Your Message" rows="5" id="comment" name="Message"></textarea>
+                     <input type="submit" value="Submit" class="sub_button">
+                  </form>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="map_main">
+                  <div class="map-responsive">
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d475.7742025606518!2d78.60979534213759!3d17.450444516496734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9c33180474ad%3A0x12dcba54f8262571!2s117%2C%20Phase%20III%2C%20IOCL%2C%20Cherlapalli%2C%20Hyderabad%2C%20Secunderabad%2C%20Telangana%20500051!5e0!3m2!1sen!2sin!4v1703430758771!5m2!1sen!2sin" width="600" height="340" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+            <!-- contact section end -->
+
+
+
+        
+            <!-- layout_border end -->
+         </div>
+      </div>
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="row">
+               
+               <div class="col-lg-4 col-sm-6">
+                  <h3 class="footer_text">Address</h3>
+                  <div class="location_text">
+                     <ul>
+                        <li>
+                           <a href="#">
+                           <span class="padding_left_10"><i class="fa fa-map-marker" aria-hidden="true"></i></span> PLOT No :117,Phase 3 I.D.A<br> Cherlapally-500051,Hyderabad(TS) </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="padding_left_10"><i class="fa fa-phone" aria-hidden="true"></i></span>(+91) 8885012193<br>(+91) 8885012194
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="padding_left_10"><i class="fa fa-envelope" aria-hidden="true"></i></span>universalfoodz668@gmail.com
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-6">
+                  <div class="footer_main">
+                     <h3 class="footer_text">Find Us</h3>
+                     <p class="dummy_text"></p>wholesale distributors</p>
+                     <div class="social_icon">
+                        <ul>
+                           <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text"> By Aman & Aditya co</p>
+         </div>
+      </div>
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+   </body>
+</html>
